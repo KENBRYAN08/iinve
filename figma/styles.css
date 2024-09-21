@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.logo img {
+    width: 350px;
+    position: absolute; /* Position it absolutely */
+    top: 10px; /* Adjust top space */
+    left: 10px; /* Adjust left space */
+}
+.navbar {
+    margin-top: 110px;
+    background-color: #196dbb;
+    padding: 10px 0; /* Padding for navbar */
+    padding: 10px 0; /* Adjust top and bottom padding */
+}
+
+.navbar-links {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center links */
+}
+
+.navbar-links li {
+    margin-left: 110px; /* Space between links */
+    margin-right: 110px;
+}
+
+.navbar-links a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 35px; /* Adjust font size */
+}
+
+.navbar-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+
+.image-container {
+    position: relative; /* For positioning the overlay */
+    width: 100%; /* Full width */
+}
+
+.image {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.text-overlay {
+    font-size: 40px;
+    position: absolute; /* Position text over image */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to truly center */
+    color: rgb(0, 0, 0); /* Text color */
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding around text */
+    text-shadow: 
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+}
+
+.navbarr {
+    background-color: #196dbb; /* Background color of the navbar */
+    height: 60px; /* Height of the navbar */
+    width: 100%; /* Full width */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+}
+
+
+
+.ccontainer {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically */
+    padding: 40px; /* Add some padding */
+}
+
+.iimage {
+    width: 800px; /* Set a width for the image */
+    height: 800px; /* Maintain aspect ratio */
+    margin-right: 30px; /* Space between image and text */
+}
+
+.ttext-content {
+    max-width: 600px; /* Limit width of text content */
+    font-size: 25px;
+}
+
+
+.cccontainer {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically */
+    padding: 20px; /* Add some padding */
+}
+
+.iiimage {
+    width: 800px; /* Set a width for the image */
+    height: 800px; /* Maintain aspect ratio */
+    margin-right: 200px; /* Space between image and text */
+    margin-left: 50px;
+}
+
+.tttext-content {
+    max-width: 800px; /* Limit width of text content */
+    font-size: 30px;
+}
+
+
+
+.acontainer {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically */
+    padding: 20px; /* Add some padding */
+}
+.atext-content h2{
+    background-color: #1879d4; /* Background color for the text */
+    padding: 20px; /* Padding for text content */
+    border-radius: 15px; /* Optional rounded corners */
+}
+.atext-content {
+    text-align: center;
+    background-color: #61a9d3; /* Background color for the text */
+    padding: 20px; /* Padding for text content */
+    border-radius: 15px; /* Optional rounded corners */
+    max-width: 600px; /* Limit width of text content */
+    margin-right: 150px; /* Space between text and image */
+    font-size: 30px;
+    margin-left: 200px;
+}
+
+.aimage {
+    width: 930px; /* Set a width for the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
