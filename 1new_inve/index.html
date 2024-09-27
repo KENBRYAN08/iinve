@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-image: url("image/pic1.jpg");
+        }
+        #sidebar {
+            width: 210px;
+            background-color: #333;
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+        }
+      
+        
+        #sidebar h2 {
+            margin: 0;
+            font-size: 24px;
+            padding-bottom: 20px;
+        }
+        #sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+            text-align: center;
+            border: 2px solid #000;
+            border-radius: 8px;
+            
+        }
+        #sidebar a:hover {
+            background-color: #575757;
+        }
+
+        
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: black;
+            
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left; 
+        }
+        th {
+            background-color: gray;
+        }
+    </style>
+    <script>
+        // Function to add a product
+        function addProduct() {
+            const name = document.getElementById('name').value;
+            const quantity = document.getElementById('quantity').value;
+            const price = document.getElementById('price').value;
+
+            fetch('add_product.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `name=${name}&quantity=${quantity}&price=${price}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                loadProducts();
+            });
+        }
+
+        // Function to load products
+        function loadProducts() {
+            fetch('get_products.php')
+                .then(response => response.json())
+                .then(data => {
+                    const table = document.getElementById('productsTable');
+                    table.innerHTML = '<tr><th>ID</th><th>Name</th><th>Quantity</th><th>Price</th></tr>';
+                    data.forEach(product => {
+                        table.innerHTML += `<tr><td>${product.id}</td><td>${product.name}</td><td>${product.quantity}</td><td>${product.price}</td></tr>`;
+                    });
+                });
+        }
+
+        // Load products on page load
+        window.onload = function() {
+            loadProducts();
+        }
+    </script>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h2>Inventory System</h2>
+        <a href="form2.php">Dashboard</a>
+        <a href="index.html" onclick="showHome()">Add Product</a>
+        <a href="supplier.php">Supplier</a>
+        <a href="form3.php">Products</a>
+        <a href="form4.php">Form4</a>
+        <a href="form5.php">Form5</a>
+        <a href="logout.php">LOGOUT</a>
+        <!-- Additional sidebar links can be added here -->
+    </div>>
+    <div id="content">
+
+        <h2>ADD PRODUCTS</h2>
+        <form onsubmit="event.preventDefault(); addProduct();">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Name" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" id="price" placeholder="Price" required>
+            <button type="submit">Add Product</button>
+        </form>
+
+        <h2>Product List</h2>
+        <table id="productsTable">
+            <!-- Product list will be populated here -->
+        </table>
+    </div>
+</body>
+</html>
